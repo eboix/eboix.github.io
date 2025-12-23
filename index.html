@@ -15,8 +15,10 @@
       max-width: 750px;
       margin-left: auto;
       margin-right: auto;
-      font-size: 0.9em;
-      font-family: 'Open Sans', sans-serif;
+      /* font-size: 0.9em;
+      font-family: 'Lato', sans-serif; */
+      font-size: 1em;
+      font-family: 'Times New Roman', Times, serif;
     }
 
     li {
@@ -118,6 +120,43 @@
       transform: rotate(-135deg);
       -webkit-transform: rotate(-135deg);
     }
+
+    .papers-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .toggle-btn {
+      background-color: #f1f1f1;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.2s;
+      font-family: inherit;
+    }
+
+    .toggle-btn:not(:last-child) {
+      border-right: 1px solid #ccc;
+    }
+
+    .toggle-btn:hover {
+      background-color: #ddd;
+    }
+
+    .toggle-btn.active {
+      background-color: #337ab7;
+      color: white;
+    }
   </style>
 </head>
 
@@ -132,20 +171,22 @@
       </p>
       <p class="contact-info"><code>eboix@wharton.upenn.edu</code>
         <br>
-        <a href="https://eboix.github.io/Enric_CV.pdf">CV</a>, <a
-          href="https://scholar.google.com/citations?user=KOZSrE8AAAAJ&hl=en&oi=ao">Google Scholar</a>
+        <br>
+        <a href="https://eboix.github.io/Enric_CV.pdf" target="_blank" rel="noopener noreferrer">CV (pdf)</a>
+        <!-- <a
+          href="https://scholar.google.com/citations?user=KOZSrE8AAAAJ&hl=en&oi=ao">Google Scholar</a> -->
       </p>
     </div>
   </div>
   <hr>
   <div class="nav-links">
-    <b><a href="#group">People</a> / <a href="#teaching">Teaching</a> / <a href="#papers">Papers (by Topic)</a></b>
+    <b><a href="#group">People</a> / <a href="#teaching">Teaching</a> / <a href="#papers">Papers</a></b>
   </div>
   <hr>
 
   <p>
 
-    My research focuses on building a mathematical science of AI, aiming to understand fundamental theoretical principles in order to enable more efficient and trustworthy AI systems. Recently, some topics that I have been thinking about are:
+    My research focuses on building a mathematical science of AI. My goal is to understand fundamental theoretical principles in order to enable more efficient and trustworthy AI systems. Recently, some topics that I have been thinking about are:
     <ol>
     <li>
       <b>AI safety</b>: How can we ensure AI systems are trustworthy as their capabilities improve? How can we monitor and control their behavior?
@@ -191,338 +232,584 @@
 
 
   <div id="papers">
-    <h2>Papers</h2>
 
-
-    For papers ordered by year, please see <a
-      href="https://scholar.google.com/citations?user=KOZSrE8AAAAJ&hl=en&oi=ao">Google Scholar</a>.
-
+    <div id="papers-toggle-header" class="papers-header">
+      <h2>Papers</h2>
+      <div class="toggle-buttons">
+        <button id="by-topic-btn" class="toggle-btn active">By Topic</button>
+        <button id="by-year-btn" class="toggle-btn">By Year</button>
+      </div>
+    </div>
 
     <p><b>* denotes equally-contributing first authors and (&alpha;&beta;) denotes alphabetical order</b> </p>
 
+    <div id="papers-by-topic">
+      <div class="expandable-box">
+        <div class="expandable-header">
+          <span><b>AI Safety and Interpretability</b></span>
+          <i class="arrow"></i>
+        </div>
+        <div class="expandable-content">
+          <ul>
+
+            <li>
+              <a href="https://arxiv.org/abs/2502.03708" class="publications"> Toward universal steering and monitoring of
+                AI models</a>
+              <br>
+              Daniel Beaglehole*, Adityanarayanan Radhakrishnan*, <b>Enric Boix-Adsera</b>, Mikhail Belkin.
+              <br>
+              <em>Preprint</em>, 2025.
+            </li>
 
 
-    <div class="expandable-box">
-      <div class="expandable-header">
-        <span><b>AI Safety and Interpretability</b></span>
-        <i class="arrow"></i>
+            <li>
+              <a href="https://arxiv.org/abs/2403.09053" class="publications"> Towards a theory of model distillation</a>
+              <br>
+              <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Preprint</em>, 2024.
+            </li>
+
+
+
+
+            <li>
+              <a href="https://arxiv.org/abs/2311.07064" class="publications">Prompts have evil twins</a>
+              <br>
+              Rimon Melamed, Lucas H. McCabe, Tanay Wakhare, Yejin Kim, H. Howie Huang, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>, 2024.
+            </li>
+
+
+            <li>
+              <a href="https://arxiv.org/abs/2210.06545" class="publications"> GULP: a prediction-based metric between
+                representations</a>
+              <br>
+              <b>Enric Boix-Adsera</b>*, Hannah Lawrence*, George Stepaniants*, Philippe Rigollet.
+              <br>
+              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
+              <br>
+              <b>Selected as oral</b> (top 8% accepted papers)
+            </li>
+
+          </ul>
+        </div>
       </div>
-      <div class="expandable-content">
-        <ul>
-
-          <li>
-            <a href="https://arxiv.org/abs/2502.03708" class="publications"> Toward universal steering and monitoring of
-              AI models</a>
-            <br>
-            Daniel Beaglehole*, Adityanarayanan Radhakrishnan*, <b>Enric Boix-Adsera</b>, Mikhail Belkin.
-            <br>
-            <em>Preprint</em>, 2025.
-          </li>
 
 
-          <li>
-            <a href="https://arxiv.org/abs/2403.09053" class="publications"> Towards a theory of model distillation</a>
-            <br>
-            <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Preprint</em>, 2024.
-          </li>
+      <div class="expandable-box">
+        <div class="expandable-header">
+          <span><b>AI Reasoning</b></span>
+          <i class="arrow"></i>
+        </div>
+        <div class="expandable-content">
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2505.21825" class="publications"> Let Me Think! A long chain of thought can
+                be worth exponentially many short ones</a>
+              <br>
+              Parsa Mirtaheri*, Ezra Edelman*, Samy Jelassi, Eran Malach, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2025.
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2310.09753" class="publications"> When can transformers reason with abstract
+                symbols?</a>
+              <br>
+              <b>Enric Boix-Adsera</b>*, Omid Saremi, Emmanuel Abbe, Samy Bengio, Etai Littwin, Joshua Susskind.
+              <br>
+              <em>International Conference on Learning Representations (ICLR)</em>, 2024.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="expandable-box">
+        <div class="expandable-header">
+          <span><b>How does AI learn internal representations? (Deep Learning Theory)</b></span>
+          <i class="arrow"></i>
+        </div>
+        <div class="expandable-content">
+          <ul>
 
 
 
+            <li>
+              <a href="https://arxiv.org/abs/2512.18452" class="publications">Secret mixtures of experts inside your LLM</a>
+              <br>
+              <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Preprint</em>, 2025.
+            </li>
 
-          <li>
-            <a href="https://arxiv.org/abs/2311.07064" class="publications">Prompts have evil twins</a>
-            <br>
-            Rimon Melamed, Lucas H. McCabe, Tanay Wakhare, Yejin Kim, H. Howie Huang, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>, 2024.
-          </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2507.05644" class="publications">The Features at Convergence Theorem: a
+                first-principles alternative to the Neural Feature Ansatz for how networks learn representations</a>
+              <br>
+              <b>Enric Boix-Adsera</b>*, Neil Mallinar*, James B. Simon, Mikhail Belkin.
+              <br>
+              <em>Preprint</em>, 2025.
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2505.06839" class="publications">The power of fine-grained experts:
+                Granularity boosts expressivity in Mixture of Experts</a>
+              <br>
+              (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Philippe Rigollet.
+              <br>
+              <em>Preprint</em>, 2025.
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2501.19149" class="publications"> On the inductive bias of infinite-depth
+                ResNets and the bottleneck rank</a>
+              <br>
+              <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Preprint</em>, 2025.
+            </li>
 
 
-          <li>
-            <a href="https://arxiv.org/abs/2210.06545" class="publications"> GULP: a prediction-based metric between
-              representations</a>
-            <br>
-            <b>Enric Boix-Adsera</b>*, Hannah Lawrence*, George Stepaniants*, Philippe Rigollet.
-            <br>
-            <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
-            <br>
-            <b>Selected as oral</b> (top 8% accepted papers)
-          </li>
+            <li>
+              <a href="https://arxiv.org/abs/2302.11055" class="publications"> SGD learning on neural networks: leap
+                complexity and saddle-to-saddle dynamics</a>
+              <br>
+              (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
+              <br>
+              <em>Conference on Learning Theory (COLT)</em>, 2023.
+            </li>
 
-        </ul>
+
+            <li>
+              <a href="https://arxiv.org/abs/2306.07042" class="publications"> Transformers learn through gradual rank
+                increase</a>
+              <br>
+              <b>Enric Boix-Adsera</b>*, Etai Littwin*, Emmanuel Abbe, Samy Bengio, Joshua Susskind.
+              <br>
+              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2023.
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2305.13141" class="publications"> Tight conditions for when the NTK
+                approximation is valid</a>
+              <br>
+              (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Etai Littwin.
+              <br>
+              <em>Transactions on Machine Learning Research (TMLR)</em>, 2023.
+            </li>
+
+            <li>
+              <a href="https://arxiv.org/abs/2208.03113" class="publications"> On the non-universality of deep learning:
+                quantifying the cost of symmetry</a>
+              <br>
+              (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
+            </li>
+
+
+            <li>
+              <a href="https://arxiv.org/abs/2202.08658" class="publications"> The merged-staircase property: a necessary
+                and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks</a>
+              <br>
+              (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
+              <br>
+              <em>Conference on Learning Theory (COLT)</em>, 2022.
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2108.10573" class="publications"> The staircase property: How hierarchical
+                structure can guide deep learning</a>
+              <br>
+              (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler, Dheeraj Nagaraj.
+              <br>
+              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2021.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="expandable-box">
+        <div class="expandable-header">
+          <span><b>Optimal transport</b></span>
+          <i class="arrow"></i>
+        </div>
+        <div class="expandable-content">
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2101.01100" class="publications"> Wasserstein barycenters are NP-hard to
+                compute</a>
+              <br>
+              (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2022.
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2012.05398" class="publications"> Hardness results for Multimarginal Optimal
+                Transport problems</a>
+              <br>
+              (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Discrete Optimization (DISOPT)</em>, 2021.
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2008.03006" class="publications"> Polynomial-time algorithms for
+                Multimarginal Optimal Transport problems with structure</a>
+              <br>
+              (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Mathematical Programming</em>, 2022.
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2006.08012" class="publications"> Wasserstein barycenters can be computed in
+                polynomial time in fixed dimension</a>
+              <br>
+              (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Journal of Machine Learning Research (JMLR)</em>, 2021.
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2002.05240" class="publications"> The Multiplayer Colonel Blotto Game</a>
+              <br>
+              (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Ben Edelman, Siddhartha Jayanti.
+              <br>
+              <em>Conference version: Economics and Computation (EC)</em>, 2020.
+              <br>
+              <em>Journal version: Games and Economic Behavior</em>, 2021.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="expandable-box">
+        <div class="expandable-header">
+          <span><b>Provable machine learning algorithms</b></span>
+          <i class="arrow"></i>
+        </div>
+        <div class="expandable-content">
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2106.03969" class="publications"> Chow-Liu++: Optimal Prediction-Centric
+                Learning of Tree Ising Models</a>
+              <br>
+              (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Guy Bresler, Frederic Koehler.
+              <br>
+              <em>Foundations of Computer Science (FOCS)</em>, 2021.
+            </li>
+            <li>
+              <a href="http://papers.nips.cc/paper/9575-sample-efficient-active-learning-of-causal-trees"
+                class="publications"> Sample-Efficient Active Learning of Causal Trees</a>
+              <br>
+              Kristjan Greenewald*, Dmitriy Katz-Rogozhnikov*, Karthikeyan Shanmugam*, Sara Magliacane, Murat Kocaoglu,
+              <b>Enric Boix-Adsera</b>, Guy Bresler.
+              <br>
+              <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2019.
+            </li>
+            <li>
+              <a href="https://projecteuclid.org/euclid.aoap/1596009617" class="publications"> An Information-Percolation
+                Bound for Spin Synchronization on General Graphs</a>
+              <br>
+              (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
+              <br><em>Annals of Applied Probability (AAP)</em>, 2020.
+            </li>
+            <li>
+              <a href="https://epubs.siam.org/doi/abs/10.1137/19M1257135" class="publications"> Graph powering and
+                spectral robustness</a>
+              <br>
+              (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Peter Ralli, Colin Sandon.
+              <br>
+              <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2020.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="expandable-box">
+        <div class="expandable-header">
+          <span><b>Other</b></span>
+          <i class="arrow"></i>
+        </div>
+        <div class="expandable-content">
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/1903.08247" class="publications"> The Average-Case Complexity of Counting
+                Cliques in Erdos-Renyi Hypergraphs</a>
+              <br>
+              (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler.
+              <br>
+              <em>Foundations of Computer Science (FOCS)</em>, 2019.
+              <br>
+              <b>Invited to the SIAM Journal on Computing Special Issue for FOCS 2019</b>
+            </li>
+            <li>
+              <a href="https://dl.acm.org/doi/10.1145/3293611.3331593" class="publications"> Randomized Concurrent Set
+                Union and Generalized Wake-Up</a>
+              <br>
+              Siddhartha Jayanti*, Robert E. Tarjan*, <b>Enric Boix-Adsera</b>.
+              <br>
+              <em>Symposium on Principles of Distributed Computing (PODC),</em> 2019.
+            </li>
+
+          </ul>
+        </div>
       </div>
     </div>
 
-
-    <div class="expandable-box">
-      <div class="expandable-header">
-        <span><b>AI Reasoning</b></span>
-        <i class="arrow"></i>
-      </div>
-      <div class="expandable-content">
-        <ul>
-          <li>
-            <a href="https://arxiv.org/abs/2505.21825" class="publications"> Let Me Think! A long chain of thought can
-              be worth exponentially many short ones</a>
-            <br>
-            Parsa Mirtaheri*, Ezra Edelman*, Samy Jelassi, Eran Malach, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2025.
-          </li>
-
-          <li>
-            <a href="https://arxiv.org/abs/2310.09753" class="publications"> When can transformers reason with abstract
-              symbols?</a>
-            <br>
-            <b>Enric Boix-Adsera</b>*, Omid Saremi, Emmanuel Abbe, Samy Bengio, Etai Littwin, Joshua Susskind.
-            <br>
-            <em>International Conference on Learning Representations (ICLR)</em>, 2024.
-          </li>
-        </ul>
-      </div>
+    <div id="papers-by-year" style="display: none;">
+      <div class="year">2025</div>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2512.18452" class="publications">Secret mixtures of experts inside your LLM</a>
+          <br>
+          <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Preprint</em>, 2025.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2507.05644" class="publications">The Features at Convergence Theorem: a
+            first-principles alternative to the Neural Feature Ansatz for how networks learn representations</a>
+          <br>
+          <b>Enric Boix-Adsera</b>*, Neil Mallinar*, James B. Simon, Mikhail Belkin.
+          <br>
+          <em>Preprint</em>, 2025.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2505.06839" class="publications">The power of fine-grained experts:
+            Granularity boosts expressivity in Mixture of Experts</a>
+          <br>
+          (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Philippe Rigollet.
+          <br>
+          <em>Preprint</em>, 2025.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2505.21825" class="publications"> Let Me Think! A long chain of thought can
+            be worth exponentially many short ones</a>
+          <br>
+          Parsa Mirtaheri*, Ezra Edelman*, Samy Jelassi, Eran Malach, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2025.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2502.03708" class="publications"> Toward universal steering and monitoring of
+            AI models</a>
+          <br>
+          Daniel Beaglehole*, Adityanarayanan Radhakrishnan*, <b>Enric Boix-Adsera</b>, Mikhail Belkin.
+          <br>
+          <em>Preprint</em>, 2025.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2501.19149" class="publications"> On the inductive bias of infinite-depth
+            ResNets and the bottleneck rank</a>
+          <br>
+          <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Preprint</em>, 2025.
+        </li>
+      </ul>
+      <div class="year">2024</div>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2403.09053" class="publications"> Towards a theory of model distillation</a>
+          <br>
+          <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Preprint</em>, 2024.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2311.07064" class="publications">Prompts have evil twins</a>
+          <br>
+          Rimon Melamed, Lucas H. McCabe, Tanay Wakhare, Yejin Kim, H. Howie Huang, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>, 2024.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2310.09753" class="publications"> When can transformers reason with abstract
+            symbols?</a>
+          <br>
+          <b>Enric Boix-Adsera</b>*, Omid Saremi, Emmanuel Abbe, Samy Bengio, Etai Littwin, Joshua Susskind.
+          <br>
+          <em>International Conference on Learning Representations (ICLR)</em>, 2024.
+        </li>
+      </ul>
+      <div class="year">2023</div>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2302.11055" class="publications"> SGD learning on neural networks: leap
+            complexity and saddle-to-saddle dynamics</a>
+          <br>
+          (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
+          <br>
+          <em>Conference on Learning Theory (COLT)</em>, 2023.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2306.07042" class="publications"> Transformers learn through gradual rank
+            increase</a>
+          <br>
+          <b>Enric Boix-Adsera</b>*, Etai Littwin*, Emmanuel Abbe, Samy Bengio, Joshua Susskind.
+          <br>
+          <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2023.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2305.13141" class="publications"> Tight conditions for when the NTK
+            approximation is valid</a>
+          <br>
+          (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Etai Littwin.
+          <br>
+          <em>Transactions on Machine Learning Research (TMLR)</em>, 2023.
+        </li>
+      </ul>
+      <div class="year">2022</div>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2210.06545" class="publications"> GULP: a prediction-based metric between
+            representations</a>
+          <br>
+          <b>Enric Boix-Adsera</b>*, Hannah Lawrence*, George Stepaniants*, Philippe Rigollet.
+          <br>
+          <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
+          <br>
+          <b>Selected as oral</b> (top 8% accepted papers)
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2208.03113" class="publications"> On the non-universality of deep learning:
+            quantifying the cost of symmetry</a>
+          <br>
+          (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2202.08658" class="publications"> The merged-staircase property: a necessary
+            and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks</a>
+          <br>
+          (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
+          <br>
+          <em>Conference on Learning Theory (COLT)</em>, 2022.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2101.01100" class="publications"> Wasserstein barycenters are NP-hard to
+            compute</a>
+          <br>
+          (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2022.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2008.03006" class="publications"> Polynomial-time algorithms for
+            Multimarginal Optimal Transport problems with structure</a>
+          <br>
+          (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Mathematical Programming</em>, 2022.
+        </li>
+      </ul>
+      <div class="year">2021</div>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2108.10573" class="publications"> The staircase property: How hierarchical
+            structure can guide deep learning</a>
+          <br>
+          (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler, Dheeraj Nagaraj.
+          <br>
+          <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2021.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2012.05398" class="publications"> Hardness results for Multimarginal Optimal
+            Transport problems</a>
+          <br>
+          (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Discrete Optimization (DISOPT)</em>, 2021.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2006.08012" class="publications"> Wasserstein barycenters can be computed in
+            polynomial time in fixed dimension</a>
+          <br>
+          (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Journal of Machine Learning Research (JMLR)</em>, 2021.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2002.05240" class="publications"> The Multiplayer Colonel Blotto Game</a>
+          <br>
+          (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Ben Edelman, Siddhartha Jayanti.
+          <br>
+          <em>Journal version: Games and Economic Behavior</em>, 2021.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/2106.03969" class="publications"> Chow-Liu++: Optimal Prediction-Centric
+            Learning of Tree Ising Models</a>
+          <br>
+          (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Guy Bresler, Frederic Koehler.
+          <br>
+          <em>Foundations of Computer Science (FOCS)</em>, 2021.
+        </li>
+      </ul>
+      <div class="year">2020</div>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2002.05240" class="publications"> The Multiplayer Colonel Blotto Game</a>
+          <br>
+          (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Ben Edelman, Siddhartha Jayanti.
+          <br>
+          <em>Conference version: Economics and Computation (EC)</em>, 2020.
+        </li>
+        <li>
+          <a href="https://projecteuclid.org/euclid.aoap/1596009617" class="publications"> An Information-Percolation
+            Bound for Spin Synchronization on General Graphs</a>
+          <br>
+          (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
+          <br><em>Annals of Applied Probability (AAP)</em>, 2020.
+        </li>
+        <li>
+          <a href="https://epubs.siam.org/doi/abs/10.1137/19M1257135" class="publications"> Graph powering and
+            spectral robustness</a>
+          <br>
+          (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Peter Ralli, Colin Sandon.
+          <br>
+          <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2020.
+        </li>
+      </ul>
+      <div class="year">2019</div>
+      <ul>
+        <li>
+          <a href="http://papers.nips.cc/paper/9575-sample-efficient-active-learning-of-causal-trees"
+            class="publications"> Sample-Efficient Active Learning of Causal Trees</a>
+          <br>
+          Kristjan Greenewald*, Dmitriy Katz-Rogozhnikov*, Karthikeyan Shanmugam*, Sara Magliacane, Murat Kocaoglu,
+          <b>Enric Boix-Adsera</b>, Guy Bresler.
+          <br>
+          <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2019.
+        </li>
+        <li>
+          <a href="https://arxiv.org/abs/1903.08247" class="publications"> The Average-Case Complexity of Counting Cliques in Erdos-Renyi Hypergraphs</a>
+          <br>
+          (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler.
+          <br>
+          <em>Foundations of Computer Science (FOCS)</em>, 2019.
+          <br>
+          <b>Invited to the SIAM Journal on Computing Special Issue for FOCS 2019</b>
+        </li>
+        <li>
+          <a href="https://dl.acm.org/doi/10.1145/3293611.3331593" class="publications"> Randomized Concurrent Set Union and Generalized Wake-Up</a>
+          <br>
+          Siddhartha Jayanti*, Robert E. Tarjan*, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Symposium on Principles of Distributed Computing (PODC),</em> 2019.
+        </li>
+      </ul>
     </div>
-
-
-    <div class="expandable-box">
-      <div class="expandable-header">
-        <span><b>How does AI learn internal representations? (Deep Learning Theory)</b></span>
-        <i class="arrow"></i>
-      </div>
-      <div class="expandable-content">
-        <ul>
-
-
-
-          <li>
-            <a href="https://arxiv.org/abs/2512.18452" class="publications">Secret mixtures of experts inside your LLM</a>
-            <br>
-            <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Preprint</em>, 2025.
-          </li>
-
-
-          <li>
-            <a href="https://arxiv.org/abs/2507.05644" class="publications">The Features at Convergence Theorem: a
-              first-principles alternative to the Neural Feature Ansatz for how networks learn representations</a>
-            <br>
-            <b>Enric Boix-Adsera</b>*, Neil Mallinar*, James B. Simon, Mikhail Belkin.
-            <br>
-            <em>Preprint</em>, 2025.
-          </li>
-
-          <li>
-            <a href="https://arxiv.org/abs/2505.06839" class="publications">The power of fine-grained experts:
-              Granularity boosts expressivity in Mixture of Experts</a>
-            <br>
-            (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Philippe Rigollet.
-            <br>
-            <em>Preprint</em>, 2025.
-          </li>
-
-          <li>
-            <a href="https://arxiv.org/abs/2501.19149" class="publications"> On the inductive bias of infinite-depth
-              ResNets and the bottleneck rank</a>
-            <br>
-            <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Preprint</em>, 2025.
-          </li>
-
-
-          <li>
-            <a href="https://arxiv.org/abs/2302.11055" class="publications"> SGD learning on neural networks: leap
-              complexity and saddle-to-saddle dynamics</a>
-            <br>
-            (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
-            <br>
-            <em>Conference on Learning Theory (COLT)</em>, 2023.
-          </li>
-
-
-          <li>
-            <a href="https://arxiv.org/abs/2306.07042" class="publications"> Transformers learn through gradual rank
-              increase</a>
-            <br>
-            <b>Enric Boix-Adsera</b>*, Etai Littwin*, Emmanuel Abbe, Samy Bengio, Joshua Susskind.
-            <br>
-            <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2023.
-          </li>
-
-          <li>
-            <a href="https://arxiv.org/abs/2305.13141" class="publications"> Tight conditions for when the NTK
-              approximation is valid</a>
-            <br>
-            (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Etai Littwin.
-            <br>
-            <em>Transactions on Machine Learning Research (TMLR)</em>, 2023.
-          </li>
-
-          <li>
-            <a href="https://arxiv.org/abs/2208.03113" class="publications"> On the non-universality of deep learning:
-              quantifying the cost of symmetry</a>
-            <br>
-            (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
-          </li>
-
-
-          <li>
-            <a href="https://arxiv.org/abs/2202.08658" class="publications"> The merged-staircase property: a necessary
-              and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks</a>
-            <br>
-            (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
-            <br>
-            <em>Conference on Learning Theory (COLT)</em>, 2022.
-          </li>
-          <li>
-            <a href="https://arxiv.org/abs/2108.10573" class="publications"> The staircase property: How hierarchical
-              structure can guide deep learning</a>
-            <br>
-            (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler, Dheeraj Nagaraj.
-            <br>
-            <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2021.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-
-    <div class="expandable-box">
-      <div class="expandable-header">
-        <span><b>Optimal transport</b></span>
-        <i class="arrow"></i>
-      </div>
-      <div class="expandable-content">
-        <ul>
-          <li>
-            <a href="https://arxiv.org/abs/2101.01100" class="publications"> Wasserstein barycenters are NP-hard to
-              compute</a>
-            <br>
-            (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2022.
-          </li>
-          <li>
-            <a href="https://arxiv.org/abs/2012.05398" class="publications"> Hardness results for Multimarginal Optimal
-              Transport problems</a>
-            <br>
-            (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Discrete Optimization (DISOPT)</em>, 2021.
-          </li>
-          <li>
-            <a href="https://arxiv.org/abs/2008.03006" class="publications"> Polynomial-time algorithms for
-              Multimarginal Optimal Transport problems with structure</a>
-            <br>
-            (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Mathematical Programming</em>, 2022.
-          </li>
-          <li>
-            <a href="https://arxiv.org/abs/2006.08012" class="publications"> Wasserstein barycenters can be computed in
-              polynomial time in fixed dimension</a>
-            <br>
-            (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Journal of Machine Learning Research (JMLR)</em>, 2021.
-          </li>
-          <li>
-            <a href="https://arxiv.org/abs/2002.05240" class="publications"> The Multiplayer Colonel Blotto Game</a>
-            <br>
-            (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Ben Edelman, Siddhartha Jayanti.
-            <br>
-            <em>Conference version: Economics and Computation (EC)</em>, 2020.
-            <br>
-            <em>Journal version: Games and Economic Behavior</em>, 2021.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="expandable-box">
-      <div class="expandable-header">
-        <span><b>Provable machine learning algorithms</b></span>
-        <i class="arrow"></i>
-      </div>
-      <div class="expandable-content">
-        <ul>
-          <li>
-            <a href="https://arxiv.org/abs/2106.03969" class="publications"> Chow-Liu++: Optimal Prediction-Centric
-              Learning of Tree Ising Models</a>
-            <br>
-            (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Guy Bresler, Frederic Koehler.
-            <br>
-            <em>Foundations of Computer Science (FOCS)</em>, 2021.
-          </li>
-          <li>
-            <a href="http://papers.nips.cc/paper/9575-sample-efficient-active-learning-of-causal-trees"
-              class="publications"> Sample-Efficient Active Learning of Causal Trees</a>
-            <br>
-            Kristjan Greenewald*, Dmitriy Katz-Rogozhnikov*, Karthikeyan Shanmugam*, Sara Magliacane, Murat Kocaoglu,
-            <b>Enric Boix-Adsera</b>, Guy Bresler.
-            <br>
-            <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2019.
-          </li>
-          <li>
-            <a href="https://projecteuclid.org/euclid.aoap/1596009617" class="publications"> An Information-Percolation
-              Bound for Spin Synchronization on General Graphs</a>
-            <br>
-            (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
-            <br><em>Annals of Applied Probability (AAP)</em>, 2020.
-          </li>
-          <li>
-            <a href="https://epubs.siam.org/doi/abs/10.1137/19M1257135" class="publications"> Graph powering and
-              spectral robustness</a>
-            <br>
-            (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Peter Ralli, Colin Sandon.
-            <br>
-            <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2020.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="expandable-box">
-      <div class="expandable-header">
-        <span><b>Other</b></span>
-        <i class="arrow"></i>
-      </div>
-      <div class="expandable-content">
-        <ul>
-          <li>
-            <a href="https://arxiv.org/abs/1903.08247" class="publications"> The Average-Case Complexity of Counting
-              Cliques in Erdos-Renyi Hypergraphs</a>
-            <br>
-            (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler.
-            <br>
-            <em>Foundations of Computer Science (FOCS)</em>, 2019.
-            <br>
-            <b>Invited to the SIAM Journal on Computing Special Issue for FOCS 2019</b>
-          </li>
-          <li>
-            <a href="https://dl.acm.org/doi/10.1145/3293611.3331593" class="publications"> Randomized Concurrent Set
-              Union and Generalized Wake-Up</a>
-            <br>
-            Siddhartha Jayanti*, Robert E. Tarjan*, <b>Enric Boix-Adsera</b>.
-            <br>
-            <em>Symposium on Principles of Distributed Computing (PODC),</em> 2019.
-          </li>
-
-        </ul>
-      </div>
-    </div>
-
 
   </div>
-
-  <br>
+ 
+<br>
   <hr>
   <p style="font-size:0.9em"> Website design adapted from <a href="https://ai.stanford.edu/~tengyuma">Tengyu Ma</a>'s
-</body>
+	</body>
 
 </html>
 <script>
@@ -539,5 +826,24 @@
         }
       });
     });
-  });
+
+    const byTopicBtn = document.getElementById('by-topic-btn');
+    const byYearBtn = document.getElementById('by-year-btn');
+    const papersByTopic = document.getElementById('papers-by-topic');
+    const papersByYear = document.getElementById('papers-by-year');
+
+    byTopicBtn.addEventListener('click', function() {
+      papersByYear.style.display = 'none';
+      papersByTopic.style.display = 'block';
+      byTopicBtn.classList.add('active');
+      byYearBtn.classList.remove('active');
+    });
+
+    byYearBtn.addEventListener('click', function() {
+      papersByTopic.style.display = 'none';
+      papersByYear.style.display = 'block';
+      byYearBtn.classList.add('active');
+      byTopicBtn.classList.remove('active');
+    });
+	});
 </script>
