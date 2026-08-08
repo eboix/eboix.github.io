@@ -9,16 +9,35 @@
     href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap"
     rel="stylesheet">
   <style type="text/css">
+    :root {
+      --font-body: 'Lato', sans-serif;
+      --font-size: 0.95em;
+      --bg: #ffffff;
+      --fg: #000000;
+      --muted: #555555;
+      --link: #337ab7;
+      --rule: #cccccc;
+      --box-border: #cccccc;
+      --box-header-bg: #f1f1f1;
+      --box-header-hover: #dddddd;
+      --btn-bg: #f1f1f1;
+      --btn-hover: #dddddd;
+      --btn-active-bg: #337ab7;
+      --btn-active-fg: #ffffff;
+      --arrow: #000000;
+    }
+
     body {
+      background-color: var(--bg);
+      color: var(--fg);
       /* line-height: 1.5; */
       padding: 4em 1em;
       max-width: 750px;
       margin-left: auto;
       margin-right: auto;
-      font-size: 0.95em;
-      font-family: 'Lato', sans-serif;
-      /* font-size: 1em;
-      font-family: 'Times New Roman', Times, serif; */
+      font-size: var(--font-size);
+      font-family: var(--font-body);
+      transition: background-color 0.2s, color 0.2s;
     }
 
     li {
@@ -27,7 +46,7 @@
 
     a {
       text-decoration: none;
-      color: #337ab7;
+      color: var(--link);
     }
 
     a:hover {
@@ -37,7 +56,7 @@
     hr {
       border: 0;
       height: 1px;
-      background-color: #ccc;
+      background-color: var(--rule);
     }
 
     code {
@@ -82,12 +101,12 @@
     }
 
     .expandable-box {
-      border: 1px solid #ccc;
+      border: 1px solid var(--box-border);
       margin-bottom: 1em;
     }
 
     .expandable-header {
-      background-color: #f1f1f1;
+      background-color: var(--box-header-bg);
       padding: 10px 15px;
       cursor: pointer;
       display: flex;
@@ -96,7 +115,7 @@
     }
 
     .expandable-header:hover {
-      background-color: #ddd;
+      background-color: var(--box-header-hover);
     }
 
     .expandable-content {
@@ -107,7 +126,7 @@
     }
 
     .arrow {
-      border: solid black;
+      border: solid var(--arrow);
       border-width: 0 2px 2px 0;
       display: inline-block;
       padding: 3px;
@@ -130,13 +149,14 @@
 
     .toggle-buttons {
       display: flex;
-      border: 1px solid #ccc;
+      border: 1px solid var(--box-border);
       border-radius: 5px;
       overflow: hidden;
     }
 
     .toggle-btn {
-      background-color: #f1f1f1;
+      background-color: var(--btn-bg);
+      color: var(--fg);
       border: none;
       padding: 8px 12px;
       cursor: pointer;
@@ -146,23 +166,24 @@
     }
 
     .toggle-btn:not(:last-child) {
-      border-right: 1px solid #ccc;
+      border-right: 1px solid var(--box-border);
     }
 
     .toggle-btn:hover {
-      background-color: #ddd;
+      background-color: var(--btn-hover);
     }
 
     .toggle-btn.active {
-      background-color: #337ab7;
-      color: white;
+      background-color: var(--btn-active-bg);
+      color: var(--btn-active-fg);
     }
+
   </style>
 </head>
 
 <body>
   <div class="profile-container">
-    <img src="profile2.png" class="profile-image">
+    <img src="profile3.jpg" class="profile-image">
     <div class="profile-text">
       <h1> Enric Boix-Adsera </h1>
       <p>Assistant Professor of Statistics and Data Science
@@ -183,6 +204,11 @@
     <b><a href="#group">People</a> / <a href="#teaching">Teaching</a> / <a href="#papers">Papers</a></b>
   </div>
   <hr>
+
+  <p>
+    I am an Assistant Professor of Statistics and Data Science at the Wharton School, University of Pennsylvania, and I
+    am also affiliated with Apple Machine Learning Research.
+  </p>
 
   <p>
 
@@ -212,8 +238,10 @@
     <ul>
       <li><a href="https://matheart.github.io/">Honam Wong</a> (UPenn PhD student coadvised with Surbhi Goel)</li>
       <li>Timothy Kong (UPenn undergraduate)</li>
+      <li>Benedict Tessler (UPenn undergraduate)</li>
+      <li>Avaneesh Parasnis (UPenn undergraduate)</li>
     </ul>
-    The group is growing! I am looking to hire creative students who have strong mathematical and empirical AI research skills. If you are interested in working with us, please see this <a
+    If you are interested in working with us, please see this <a
       href="https://docs.google.com/document/d/1rGgwq2U5LXxYosYGhvQ3nTKxB2f4-q4jxfDJ8UtZQsY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">FAQ</a>!
     <p>
     </p>
@@ -223,7 +251,7 @@
 
   <div id="teaching">
     <h2>Teaching</h2>
-    <p>I designed a new course, which I am teaching for the first time in Spring 2026:
+    <p>I designed a new course, which I taught for the first time in Spring 2026:
       <br> <a
         href="https://eboix.github.io/Foundations_of_AI.pdf">STAT 4850/5850 Foundations of AI: Deep Learning with
         Applications</a>.
@@ -335,6 +363,18 @@
         <div class="expandable-content">
           <ul>
 
+
+
+            <li>
+              <a href="https://arxiv.org/abs/2604.21691" class="publications">There will be a scientific theory of deep
+                learning</a>
+              <br>
+              James B. Simon, Daniel Kunin, Alexander Atanasov, <b>Enric Boix-Adsera</b>, Blake Bordelon, Jeremy Cohen,
+              Nikhil Ghosh, Florentin Guth, Arthur Jacot, Mason Kamb, Dhruva Karkada, Eric J. Michaud, Berkan Ottlik,
+              Joseph Turnbull.
+              <br>
+              <em>Preprint</em>, 2026.
+            </li>
 
 
             <li>
@@ -562,6 +602,16 @@
     <div id="papers-by-year">
       <div class="year">2026</div>
 		<ul>
+        <li>
+          <a href="https://arxiv.org/abs/2604.21691" class="publications">There will be a scientific theory of deep
+            learning</a>
+          <br>
+          James B. Simon, Daniel Kunin, Alexander Atanasov, <b>Enric Boix-Adsera</b>, Blake Bordelon, Jeremy Cohen,
+          Nikhil Ghosh, Florentin Guth, Arthur Jacot, Mason Kamb, Dhruva Karkada, Eric J. Michaud, Berkan Ottlik,
+          Joseph Turnbull.
+          <br>
+          <em>Preprint</em>, 2026.
+        </li>
 		        <li>
           <a href="https://arxiv.org/abs/2507.05644" class="publications">The Features at Convergence Theorem: a
             first-principles alternative to the Neural Feature Ansatz for how networks learn representations</a>
@@ -849,5 +899,6 @@
       byYearBtn.classList.add('active');
       byTopicBtn.classList.remove('active');
     });
+
 	});
 </script>
