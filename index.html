@@ -191,10 +191,57 @@
       color: var(--fg);
     }
 
-    .year {
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-top: 1.2em;
+    #paper-list ul {
+      padding-left: 1.3em;
+    }
+
+    #paper-list li {
+      margin: 1.1em 0;
+    }
+
+    .entry-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 0.4em;
+    }
+
+    .abs-toggle {
+      font-family: inherit;
+      font-size: 0.8em;
+      padding: 2px 8px;
+      border: 1px solid var(--box-border);
+      border-radius: 999px;
+      background-color: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .abs-toggle:hover {
+      background-color: var(--btn-hover);
+      color: var(--fg);
+    }
+
+    .caret {
+      display: inline-block;
+      font-size: 0.85em;
+      transition: transform 0.15s;
+    }
+
+    .abs-toggle[aria-expanded="true"] .caret {
+      transform: rotate(90deg);
+    }
+
+    .abstract {
+      margin-top: 0.5em;
+      padding: 0.7em 0.9em;
+      border-left: 3px solid var(--box-border);
+      background-color: var(--box-header-bg);
+      color: var(--muted);
+      font-size: 0.92em;
+      line-height: 1.45;
+      text-align: justify;
     }
 
   </style>
@@ -296,9 +343,8 @@
       <button type="button" class="tag-btn" data-filter="other">Other</button>
     </div>
 
-    <div id="papers-by-year">
-      <div class="year">2026</div>
-		<ul>
+    <div id="paper-list">
+      <ul>
         <li data-tags="safety">
           <a href="https://arxiv.org/abs/2609.32061" class="publications">Contract monitoring: governing AI via
             separation of powers</a>
@@ -306,7 +352,11 @@
           <b>Enric Boix-Adsera</b>.
           <br>
           <em>Preprint</em>, 2026.
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>We propose an AI safety framework that binds worker agents to contracts specifying their permitted actions. We show how these contracts can be enforced and specified by assigning distinct responsibilities to monitor agents and judges, and asymmetric computational resources to monitors and workers. Our framework allows us to empirically measure statistical safety guarantees. The framework applies to a wide range of settings, including code security and escape-the-box scenarios.</div>
         </li>
         <li data-tags="safety reasoning">
           <a href="https://arxiv.org/abs/2609.32907" class="publications">Logical subspace in LLMs</a>
@@ -314,7 +364,11 @@
           Hope Kean, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Preprint</em>, 2026.
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
+          </div>
+          <div class="abstract" hidden>Recent work has identified a human brain network specialized for abstract formal reasoning (Kean et al., 2025). Does the same hold true in language models? To answer this question, we introduce the minimal viable subspace (MVS) method, which searches for the lowest-rank activation subspace at a layer that preserves task performance when everything outside that subspace is ablated. Using MVS, we demonstrate low-rank subspaces supporting logical inference on Gemma and Qwen models. Furthermore, these subspaces exhibit a clear dissociation from model capacities on other tasks, such that retaining these late logic subspaces preserves inference while impairing factual knowledge, working memory, cognitive control, and arithmetic. Conversely, ablating them reduces logical inference accuracy to chance while largely sparing these other capacities. Our results suggest a functionally localizable core machinery for logic akin to that in the human brain.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2608.24007" class="publications">Revenge of Monosemanticity: Specialized
@@ -323,7 +377,11 @@
           Amirhesam Abedsoltan, <b>Enric Boix-Adsera</b>, Fivos Kalogiannis, Mikhail Belkin.
           <br>
           <em>Preprint</em>, 2026.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>Understanding how neural networks learn and organize features is central to understanding their behavior. Much existing theory of feature learning has focused on the emergence of a global low-dimensional representation. We show that this picture is incomplete. In regression problems with clustered data, we demonstrate that multilayer perceptrons (MLPs) naturally develop monosemantic specialized neurons: individual neurons become strongly aligned with a specific predictive feature relevant to a particular region of the input space. Rather than learning a single global low-dimensional representation, MLPs learn a collection of local low-dimensional representations. We show that this ability to specialize gives MLPs a provable data-efficiency advantage over feature-learning methods based on a global low-dimensional representation.</div>
         </li>
         <li data-tags="safety">
           <a href="https://arxiv.org/abs/2608.16834" class="publications">Model Hypnosis: Strong control of AI via
@@ -332,7 +390,11 @@
           <b>Enric Boix-Adsera</b>, Benedict Tessler.
           <br>
           <em>Preprint</em>, 2026.
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>We demonstrate that AI models are broadly susceptible to a phenomenon we call model hypnosis, in which individually weak and seemingly irrelevant cues in the prompt can be systematically combined to strongly control model behavior. Model hypnosis occurs across model families and scales, including in frontier reasoning models, and hypnotic prompts can transfer between models. Because the model is controlled by inconspicuous textual choices, such as paraphrases and typos, model hypnosis presents new challenges and avenues for AI safety, and is a major hurdle for AI interpretability.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2604.21691" class="publications">There will be a scientific theory of deep
@@ -343,28 +405,36 @@
           Joseph Turnbull.
           <br>
           <em>Preprint</em>, 2026.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>In this paper, we make the case that a scientific theory of deep learning is emerging. By this we mean a theory which characterizes important properties and statistics of the training process, hidden representations, final weights, and performance of neural networks. We pull together major strands of ongoing research in deep learning theory and identify five growing bodies of work that point toward such a theory: (a) solvable idealized settings that provide intuition for learning dynamics in realistic systems; (b) tractable limits that reveal insights into fundamental learning phenomena; (c) simple mathematical laws that capture important macroscopic observables; (d) theories of hyperparameters that disentangle them from the rest of the training process, leaving simpler systems behind; and (e) universal behaviors shared across systems and settings which clarify which phenomena call for explanation. Taken together, these bodies of work share certain broad traits: they are concerned with the dynamics of the training process; they primarily seek to describe coarse aggregate statistics; and they emphasize falsifiable quantitative predictions. We argue that the emerging theory is best thought of as a mechanics of the learning process, and suggest the name learning mechanics. We discuss the relationship between this mechanics perspective and other approaches for building a theory of deep learning, including the statistical and information-theoretic perspectives. In particular, we anticipate a symbiotic relationship between learning mechanics and mechanistic interpretability. We also review and address common arguments that fundamental theory will not be possible or is not important. We conclude with a portrait of important open directions in learning mechanics and advice for beginners. We host further introductory materials, perspectives, and open questions at learningmechanics.pub.</div>
         </li>
-		        <li data-tags="dlt">
+        <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2507.05644" class="publications">The Features at Convergence Theorem: a
             first-principles alternative to the Neural Feature Ansatz for how networks learn representations</a>
           <br>
           <b>Enric Boix-Adsera</b>*, Neil Mallinar*, James B. Simon, Mikhail Belkin.
           <br>
           <em>International Conference on Learning Representations (ICLR)</em>, 2026.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>It is a central challenge in deep learning to understand how neural networks learn representations. A leading approach is the Neural Feature Ansatz (NFA) (Radhakrishnan et al. 2024), a conjectured mechanism for how feature learning occurs. Although the NFA is empirically validated, it is an educated guess and lacks a theoretical basis, and thus it is unclear when it might fail, and how to improve it. In this paper, we take a first-principles approach to understanding why this observation holds, and when it does not. We use first-order optimality conditions to derive the Features at Convergence Theorem (FACT), an alternative to the NFA that (a) obtains greater agreement with learned features at convergence, (b) explains why the NFA holds in most settings, and (c) captures essential feature learning phenomena in neural networks such as grokking behavior in modular arithmetic and phase transitions in learning sparse parities, similarly to the NFA. Thus, our results unify theoretical first-order optimality analyses of neural networks with the empirically-driven NFA literature, and provide a principled alternative that provably and empirically holds at convergence.</div>
         </li>
-	</ul>
-		
-      <div class="year">2025</div>
-      <ul>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2512.18452" class="publications">Secret mixtures of experts inside your LLM</a>
           <br>
           <b>Enric Boix-Adsera</b>.
           <br>
           <em>Preprint</em>, 2025.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>Despite being one of the earliest neural network layers, the Multilayer Perceptron (MLP) is arguably one of the least understood parts of the transformer architecture due to its dense computation and lack of easy visualization. This paper seeks to understand the MLP layers in dense LLM models by hypothesizing that these layers secretly approximately perform a sparse computation -- namely, that they can be well approximated by sparsely-activating Mixture of Experts (MoE) layers. Our hypothesis is based on a novel theoretical connection between MoE models and Sparse Autoencoder (SAE) structure in activation space. We empirically validate the hypothesis on pretrained LLMs, and demonstrate that the activation distribution matters -- these results do not hold for Gaussian data, but rather rely crucially on structure in the distribution of neural network activations. Our results shine light on a general principle at play in MLP layers inside LLMs, and give an explanation for the effectiveness of modern MoE-based transformers. Additionally, our experimental explorations suggest new directions for more efficient MoE architecture design based on low-rank routers.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2505.06839" class="publications">The power of fine-grained experts:
@@ -373,7 +443,11 @@
           (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Philippe Rigollet.
           <br>
           <em>Preprint</em>, 2025.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>Mixture-of-Experts (MoE) layers are increasingly central to frontier model architectures. By selectively activating parameters, they reduce computational cost while scaling total parameter count. This paper investigates the impact of the number of active experts, termed granularity, comparing architectures with many (e.g., 8 per layer in DeepSeek) to those with fewer (e.g., 1 per layer in Llama-4 models). We prove an exponential separation in network expressivity based on this design parameter, suggesting that models benefit from higher granularity. Experimental results corroborate our theoretical findings and illustrate this separation.</div>
         </li>
         <li data-tags="reasoning">
           <a href="https://arxiv.org/abs/2505.21825" class="publications"> Let Me Think! A long chain of thought can
@@ -382,7 +456,11 @@
           Parsa Mirtaheri*, Ezra Edelman*, Samy Jelassi, Eran Malach, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2025.
-          <div class="tags"><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
+          </div>
+          <div class="abstract" hidden>Inference-time computation has emerged as a promising scaling axis for improving large language model reasoning. However, despite yielding impressive performance, the optimal allocation of inference-time computation remains poorly understood. A central question is whether to prioritize sequential scaling (e.g., longer chains of thought) or parallel scaling (e.g., majority voting across multiple short chains of thought). In this work, we seek to illuminate the landscape of test-time scaling by demonstrating the existence of reasoning settings where sequential scaling offers an exponential advantage over parallel scaling. These settings are based on graph connectivity problems in challenging distributions of graphs. We validate our theoretical findings with comprehensive experiments across a range of language models, including models trained from scratch for graph connectivity with different chain of thought strategies as well as large reasoning models.</div>
         </li>
         <li data-tags="safety">
           <a href="https://arxiv.org/abs/2502.03708" class="publications"> Toward universal steering and monitoring of
@@ -391,7 +469,11 @@
           Daniel Beaglehole*, Adityanarayanan Radhakrishnan*, <b>Enric Boix-Adsera</b>, Mikhail Belkin.
           <br>
           <em>Science</em>, 2025.
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>Modern AI models contain much of human knowledge, yet understanding of their internal representation of this knowledge remains elusive. Characterizing the structure and properties of this representation will lead to improvements in model capabilities and development of effective safeguards. Building on recent advances in feature learning, we develop an effective, scalable approach for extracting linear representations of general concepts in large-scale AI models (language models, vision-language models, and reasoning models). We show how these representations enable model steering, through which we expose vulnerabilities, mitigate misaligned behaviors, and improve model capabilities. Additionally, we demonstrate that concept representations are remarkably transferable across human languages and combinable to enable multi-concept steering. Through quantitative analysis across hundreds of concepts, we find that newer, larger models are more steerable and steering can improve model capabilities beyond standard prompting. We show how concept representations are effective for monitoring misaligned content (hallucinations, toxic content). We demonstrate that predictive models built using concept representations are more accurate for monitoring misaligned content than using models that judge outputs directly. Together, our results illustrate the power of using internal representations to map the knowledge in AI models, advance AI safety, and improve model capabilities.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2501.19149" class="publications"> On the inductive bias of infinite-depth
@@ -400,18 +482,23 @@
           <b>Enric Boix-Adsera</b>.
           <br>
           <em>Preprint</em>, 2025.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>We compute the minimum-norm weights of a deep linear ResNet, and find that the inductive bias of this architecture lies between minimizing nuclear norm and rank. This implies that, with appropriate hyperparameters, deep nonlinear ResNets have an inductive bias towards minimizing bottleneck rank.</div>
         </li>
-      </ul>
-      <div class="year">2024</div>
-      <ul>
         <li data-tags="safety">
           <a href="https://arxiv.org/abs/2403.09053" class="publications"> Towards a theory of model distillation</a>
           <br>
           <b>Enric Boix-Adsera</b>.
           <br>
           <em>Preprint</em>, 2024.
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>Distillation is the task of replacing a complicated machine learning model with a simpler model that approximates the original [BCNM06,HVD15]. Despite many practical applications, basic questions about the extent to which models can be distilled, and the runtime and amount of data needed to distill, remain largely open. To study these questions, we initiate a general theory of distillation, defining PAC-distillation in an analogous way to PAC-learning [Val84]. As applications of this theory: (1) we propose new algorithms to extract the knowledge stored in the trained weights of neural networks -- we show how to efficiently distill neural networks into succinct, explicit decision tree representations when possible by using the ``linear representation hypothesis&#x27;&#x27;; and (2) we prove that distillation can be much cheaper than learning from scratch, and make progress on characterizing its complexity.</div>
         </li>
         <li data-tags="safety">
           <a href="https://arxiv.org/abs/2311.07064" class="publications">Prompts have evil twins</a>
@@ -419,7 +506,11 @@
           Rimon Melamed, Lucas H. McCabe, Tanay Wakhare, Yejin Kim, H. Howie Huang, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>, 2024.
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>We discover that many natural-language prompts can be replaced by corresponding prompts that are unintelligible to humans but that provably elicit similar behavior in language models. We call these prompts &quot;evil twins&quot; because they are obfuscated and uninterpretable (evil), but at the same time mimic the functionality of the original natural-language prompts (twins). Remarkably, evil twins transfer between models. We find these prompts by solving a maximum-likelihood problem which has applications of independent interest.</div>
         </li>
         <li data-tags="reasoning">
           <a href="https://arxiv.org/abs/2310.09753" class="publications"> When can transformers reason with abstract
@@ -428,11 +519,12 @@
           <b>Enric Boix-Adsera</b>*, Omid Saremi, Emmanuel Abbe, Samy Bengio, Etai Littwin, Joshua Susskind.
           <br>
           <em>International Conference on Learning Representations (ICLR)</em>, 2024.
-          <div class="tags"><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
+          </div>
+          <div class="abstract" hidden>We investigate the capabilities of transformer models on relational reasoning tasks. In these tasks, models are trained on a set of strings encoding abstract relations, and are then tested out-of-distribution on data that contains symbols that did not appear in the training dataset. We prove that for any relational reasoning task in a large family of tasks, transformers learn the abstract relations and generalize to the test set when trained by gradient descent on sufficiently large quantities of training data. This is in contrast to classical fully-connected networks, which we prove fail to learn to reason. Our results inspire modifications of the transformer architecture that add only two trainable parameters per head, and that we empirically demonstrate improve data efficiency for learning to reason.</div>
         </li>
-      </ul>
-      <div class="year">2023</div>
-      <ul>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2302.11055" class="publications"> SGD learning on neural networks: leap
             complexity and saddle-to-saddle dynamics</a>
@@ -440,7 +532,11 @@
           (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
           <br>
           <em>Conference on Learning Theory (COLT)</em>, 2023.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>We investigate the time complexity of SGD learning on fully-connected neural networks with isotropic data. We put forward a complexity measure -- the leap -- which measures how &quot;hierarchical&quot; target functions are. For $d$-dimensional uniform Boolean or isotropic Gaussian data, our main conjecture states that the time complexity to learn a function $f$ with low-dimensional support is $\tildeΘ(d^{\max(\mathrm{Leap}(f),2)})$. We prove a version of this conjecture for a class of functions on Gaussian isotropic data and 2-layer neural networks, under additional technical assumptions on how SGD is run. We show that the training sequentially learns the function support with a saddle-to-saddle dynamic. Our result departs from [Abbe et al. 2022] by going beyond leap 1 (merged-staircase functions), and by going beyond the mean-field and gradient flow approximations that prohibit the full complexity control obtained here. Finally, we note that this gives an SGD complexity for the full training trajectory that matches that of Correlational Statistical Query (CSQ) lower-bounds.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2306.07042" class="publications"> Transformers learn through gradual rank
@@ -449,7 +545,11 @@
           <b>Enric Boix-Adsera</b>*, Etai Littwin*, Emmanuel Abbe, Samy Bengio, Joshua Susskind.
           <br>
           <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2023.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>We identify incremental learning dynamics in transformers, where the difference between trained and initial weights progressively increases in rank. We rigorously prove this occurs under the simplifying assumptions of diagonal weight matrices and small initialization. Our experiments support the theory and also show that phenomenon can occur in practice without the simplifying assumptions.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2305.13141" class="publications"> Tight conditions for when the NTK
@@ -458,11 +558,12 @@
           (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Etai Littwin.
           <br>
           <em>Transactions on Machine Learning Research (TMLR)</em>, 2023.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>We study when the neural tangent kernel (NTK) approximation is valid for training a model with the square loss. In the lazy training setting of Chizat et al. 2019, we show that rescaling the model by a factor of $α= O(T)$ suffices for the NTK approximation to be valid until training time $T$. Our bound is tight and improves on the previous bound of Chizat et al. 2019, which required a larger rescaling factor of $α= O(T^2)$.</div>
         </li>
-      </ul>
-      <div class="year">2022</div>
-      <ul>
         <li data-tags="safety">
           <a href="https://arxiv.org/abs/2210.06545" class="publications"> GULP: a prediction-based metric between
             representations</a>
@@ -472,7 +573,11 @@
           <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
           <br>
           <b>Selected as oral</b> (top 8% accepted papers)
-          <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>Comparing the representations learned by different neural networks has recently emerged as a key tool to understand various architectures and ultimately optimize them. In this work, we introduce GULP, a family of distance measures between representations that is explicitly motivated by downstream predictive tasks. By construction, GULP provides uniform control over the difference in prediction performance between two representations, with respect to regularized linear prediction tasks. Moreover, it satisfies several desirable structural properties, such as the triangle inequality and invariance under orthogonal transformations, and thus lends itself to data embedding and visualization. We extensively evaluate GULP relative to other methods, and demonstrate that it correctly differentiates between architecture families, converges over the course of training, and captures generalization performance on downstream linear tasks.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2208.03113" class="publications"> On the non-universality of deep learning:
@@ -481,7 +586,11 @@
           (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>We prove limitations on what neural networks trained by noisy gradient descent (GD) can efficiently learn. Our results apply whenever GD training is equivariant, which holds for many standard architectures and initializations. As applications, (i) we characterize the functions that fully-connected networks can weak-learn on the binary hypercube and unit sphere, demonstrating that depth-2 is as powerful as any other depth for this task; (ii) we extend the merged-staircase necessity result for learning with latent low-dimensional structure [ABM22] to beyond the mean-field regime. Under cryptographic assumptions, we also show hardness results for learning with fully-connected networks trained by stochastic gradient descent (SGD).</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2202.08658" class="publications"> The merged-staircase property: a necessary
@@ -490,7 +599,11 @@
           (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Theodor Misiakiewicz.
           <br>
           <em>Conference on Learning Theory (COLT)</em>, 2022.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>It is currently known how to characterize functions that neural networks can learn with SGD for two extremal parameterizations: neural networks in the linear regime, and neural networks with no structural constraints. However, for the main parametrization of interest (non-linear but regular networks) no tight characterization has yet been achieved, despite significant developments. We take a step in this direction by considering depth-2 neural networks trained by SGD in the mean-field regime. We consider functions on binary inputs that depend on a latent low-dimensional subspace (i.e., small number of coordinates). This regime is of interest since it is poorly understood how neural networks routinely tackle high-dimensional datasets and adapt to latent low-dimensional structure without suffering from the curse of dimensionality. Accordingly, we study SGD-learnability with $O(d)$ sample complexity in a large ambient dimension $d$. Our main results characterize a hierarchical property, the &quot;merged-staircase property&quot;, that is both necessary and nearly sufficient for learning in this setting. We further show that non-linear training is necessary: for this class of functions, linear methods on any feature map (e.g., the NTK) are not capable of learning efficiently. The key tools are a new &quot;dimension-free&quot; dynamics approximation result that applies to functions defined on a latent space of low-dimension, a proof of global convergence based on polynomial identity testing, and an improvement of lower bounds against linear methods for non-almost orthogonal functions.</div>
         </li>
         <li data-tags="ot">
           <a href="https://arxiv.org/abs/2101.01100" class="publications"> Wasserstein barycenters are NP-hard to
@@ -499,7 +612,11 @@
           (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
           <br>
           <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2022.
-          <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          </div>
+          <div class="abstract" hidden>Computing Wasserstein barycenters (a.k.a. Optimal Transport barycenters) is a fundamental problem in geometry which has recently attracted considerable attention due to many applications in data science. While there exist polynomial-time algorithms in any fixed dimension, all known running times suffer exponentially in the dimension. It is an open question whether this exponential dependence is improvable to a polynomial dependence. This paper proves that unless P=NP, the answer is no. This uncovers a &quot;curse of dimensionality&quot; for Wasserstein barycenter computation which does not occur for Optimal Transport computation. Moreover, our hardness results for computing Wasserstein barycenters extend to approximate computation, to seemingly simple cases of the problem, and to averaging probability distributions in other Optimal Transport metrics.</div>
         </li>
         <li data-tags="ot">
           <a href="https://arxiv.org/abs/2008.03006" class="publications"> Polynomial-time algorithms for
@@ -508,11 +625,12 @@
           (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Mathematical Programming</em>, 2022.
-          <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          </div>
+          <div class="abstract" hidden>Multimarginal Optimal Transport (MOT) has attracted significant interest due to applications in machine learning, statistics, and the sciences. However, in most applications, the success of MOT is severely limited by a lack of efficient algorithms. Indeed, MOT in general requires exponential time in the number of marginals k and their support sizes n. This paper develops a general theory about what &quot;structure&quot; makes MOT solvable in poly(n,k) time. We develop a unified algorithmic framework for solving MOT in poly(n,k) time by characterizing the &quot;structure&quot; that different algorithms require in terms of simple variants of the dual feasibility oracle. This framework has several benefits. First, it enables us to show that the Sinkhorn algorithm, which is currently the most popular MOT algorithm, requires strictly more structure than other algorithms do to solve MOT in poly(n,k) time. Second, our framework makes it much simpler to develop poly(n,k) time algorithms for a given MOT problem. In particular, it is necessary and sufficient to (approximately) solve the dual feasibility oracle -- which is much more amenable to standard algorithmic techniques. We illustrate this ease-of-use by developing poly(n,k) time algorithms for three general classes of MOT cost structures: (1) graphical structure; (2) set-optimization structure; and (3) low-rank plus sparse structure. For structure (1), we recover the known result that Sinkhorn has poly(n,k) runtime; moreover, we provide the first poly(n,k) time algorithms for computing solutions that are exact and sparse. For structures (2)-(3), we give the first poly(n,k) time algorithms, even for approximate computation. Together, these three structures encompass many -- if not most -- current applications of MOT.</div>
         </li>
-      </ul>
-      <div class="year">2021</div>
-      <ul>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2108.10573" class="publications"> The staircase property: How hierarchical
             structure can guide deep learning</a>
@@ -520,7 +638,11 @@
           (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Matthew Brennan, Guy Bresler, Dheeraj Nagaraj.
           <br>
           <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2021.
-          <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>This paper identifies a structural property of data distributions that enables deep neural networks to learn hierarchically. We define the &quot;staircase&quot; property for functions over the Boolean hypercube, which posits that high-order Fourier coefficients are reachable from lower-order Fourier coefficients along increasing chains. We prove that functions satisfying this property can be learned in polynomial time using layerwise stochastic coordinate descent on regular neural networks -- a class of network architectures and initializations that have homogeneity properties. Our analysis shows that for such staircase functions and neural networks, the gradient-based algorithm learns high-level features by greedily combining lower-level features along the depth of the network. We further back our theoretical results with experiments showing that staircase functions are also learnable by more standard ResNet architectures with stochastic gradient descent. Both the theoretical and experimental results support the fact that staircase properties have a role to play in understanding the capabilities of gradient-based learning on regular networks, in contrast to general polynomial-size networks that can emulate any SQ or PAC algorithms as recently shown.</div>
         </li>
         <li data-tags="ot">
           <a href="https://arxiv.org/abs/2012.05398" class="publications"> Hardness results for Multimarginal Optimal
@@ -529,7 +651,11 @@
           (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Discrete Optimization (DISOPT)</em>, 2021.
-          <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          </div>
+          <div class="abstract" hidden>Multimarginal Optimal Transport (MOT) is the problem of linear programming over joint probability distributions with fixed marginals. A key issue in many applications is the complexity of solving MOT: the linear program has exponential size in the number of marginals k and their support sizes n. A recent line of work has shown that MOT is poly(n,k)-time solvable for certain families of costs that have poly(n,k)-size implicit representations. However, it is unclear what further families of costs this line of algorithmic research can encompass. In order to understand these fundamental limitations, this paper initiates the study of intractability results for MOT. Our main technical contribution is developing a toolkit for proving NP-hardness and inapproximability results for MOT problems. We demonstrate this toolkit by using it to establish the intractability of a number of MOT problems studied in the literature that have resisted previous algorithmic efforts. For instance, we provide evidence that repulsive costs make MOT intractable by showing that several such problems of interest are NP-hard to solve--even approximately.</div>
         </li>
         <li data-tags="ot">
           <a href="https://arxiv.org/abs/2006.08012" class="publications"> Wasserstein barycenters can be computed in
@@ -538,7 +664,11 @@
           (&alpha;&beta;) Jason Altschuler, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Journal of Machine Learning Research (JMLR)</em>, 2021.
-          <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          </div>
+          <div class="abstract" hidden>Computing Wasserstein barycenters is a fundamental geometric problem with widespread applications in machine learning, statistics, and computer graphics. However, it is unknown whether Wasserstein barycenters can be computed in polynomial time, either exactly or to high precision (i.e., with $\textrm{polylog}(1/\varepsilon)$ runtime dependence). This paper answers these questions in the affirmative for any fixed dimension. Our approach is to solve an exponential-size linear programming formulation by efficiently implementing the corresponding separation oracle using techniques from computational geometry.</div>
         </li>
         <li data-tags="ot">
           <a href="https://arxiv.org/abs/2002.05240" class="publications"> The Multiplayer Colonel Blotto Game</a>
@@ -546,7 +676,11 @@
           (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Ben Edelman, Siddhartha Jayanti.
           <br>
           <em>Journal version: Games and Economic Behavior</em>, 2021.
-          <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          </div>
+          <div class="abstract" hidden>We initiate the study of the natural multiplayer generalization of the classic continuous Colonel Blotto game. The two-player Blotto game, introduced by Borel as a model of resource competition across $n$ simultaneous fronts, has been studied extensively for a century and seen numerous applications throughout the social sciences. Our work defines the multiplayer Colonel Blotto game and derives Nash equilibria for various settings of $k$ (number of players) and $n$. We also introduce a &quot;Boolean&quot; version of Blotto that becomes interesting in the multiplayer setting. The main technical difficulty of our work, as in the two-player theoretical literature, is the challenge of coupling various marginal distributions into a joint distribution satisfying a strict sum constraint. In contrast to previous works in the continuous setting, we derive our couplings algorithmically in the form of efficient sampling algorithms.</div>
         </li>
         <li data-tags="provable">
           <a href="https://arxiv.org/abs/2106.03969" class="publications"> Chow-Liu++: Optimal Prediction-Centric
@@ -555,18 +689,23 @@
           (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Guy Bresler, Frederic Koehler.
           <br>
           <em>Foundations of Computer Science (FOCS)</em>, 2021.
-          <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          </div>
+          <div class="abstract" hidden>We consider the problem of learning a tree-structured Ising model from data, such that subsequent predictions computed using the model are accurate. Concretely, we aim to learn a model such that posteriors $P(X_i|X_S)$ for small sets of variables $S$ are accurate. Since its introduction more than 50 years ago, the Chow-Liu algorithm, which efficiently computes the maximum likelihood tree, has been the benchmark algorithm for learning tree-structured graphical models. A bound on the sample complexity of the Chow-Liu algorithm with respect to the prediction-centric local total variation loss was shown in [BK19]. While those results demonstrated that it is possible to learn a useful model even when recovering the true underlying graph is impossible, their bound depends on the maximum strength of interactions and thus does not achieve the information-theoretic optimum. In this paper, we introduce a new algorithm that carefully combines elements of the Chow-Liu algorithm with tree metric reconstruction methods to efficiently and optimally learn tree Ising models under a prediction-centric loss. Our algorithm is robust to model misspecification and adversarial corruptions. In contrast, we show that the celebrated Chow-Liu algorithm can be arbitrarily suboptimal.</div>
         </li>
-      </ul>
-      <div class="year">2020</div>
-      <ul>
         <li data-tags="ot">
           <a href="https://arxiv.org/abs/2002.05240" class="publications"> The Multiplayer Colonel Blotto Game</a>
           <br>
           (&alpha;&beta;) <b>Enric Boix-Adsera</b>, Ben Edelman, Siddhartha Jayanti.
           <br>
           <em>Conference version: Economics and Computation (EC)</em>, 2020.
-          <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="ot">Optimal transport</button></div>
+          </div>
+          <div class="abstract" hidden>We initiate the study of the natural multiplayer generalization of the classic continuous Colonel Blotto game. The two-player Blotto game, introduced by Borel as a model of resource competition across $n$ simultaneous fronts, has been studied extensively for a century and seen numerous applications throughout the social sciences. Our work defines the multiplayer Colonel Blotto game and derives Nash equilibria for various settings of $k$ (number of players) and $n$. We also introduce a &quot;Boolean&quot; version of Blotto that becomes interesting in the multiplayer setting. The main technical difficulty of our work, as in the two-player theoretical literature, is the challenge of coupling various marginal distributions into a joint distribution satisfying a strict sum constraint. In contrast to previous works in the continuous setting, we derive our couplings algorithmically in the form of efficient sampling algorithms.</div>
         </li>
         <li data-tags="provable">
           <a href="https://projecteuclid.org/euclid.aoap/1596009617" class="publications"> An Information-Percolation
@@ -574,7 +713,11 @@
           <br>
           (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>.
           <br><em>Annals of Applied Probability (AAP)</em>, 2020.
-          <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          </div>
+          <div class="abstract" hidden>This paper considers the problem of reconstructing $n$ independent uniform spins $X_1,\dots,X_n$ living on the vertices of an $n$-vertex graph $G$, by observing their interactions on the edges of the graph. This captures instances of models such as (i) broadcasting on trees, (ii) block models, (iii) synchronization on grids, (iv) spiked Wigner models. The paper gives an upper-bound on the mutual information between two vertices in terms of a bond percolation estimate. Namely, the information between two vertices&#x27; spins is bounded by the probability that these vertices are connected in a bond percolation model, where edges are opened with a probability that &quot;emulates&quot; the edge-information. Both the information and the open-probability are based on the Chi-squared mutual information. The main results allow us to re-derive known results for information-theoretic non-reconstruction in models (i)-(iv), with more direct or improved bounds in some cases, and to obtain new results, such as for a spiked Wigner model on grids. The main result also implies a new subadditivity property for the Chi-squared mutual information for symmetric channels and general graphs, extending the subadditivity property obtained by Evans-Kenyon-Peres-Schulman [EKPS00] for trees.</div>
         </li>
         <li data-tags="provable">
           <a href="https://epubs.siam.org/doi/abs/10.1137/19M1257135" class="publications"> Graph powering and
@@ -583,11 +726,12 @@
           (&alpha;&beta;) Emmanuel Abbe, <b>Enric Boix-Adsera</b>, Peter Ralli, Colin Sandon.
           <br>
           <em>SIAM Journal on Mathematics of Data Science (SIMODS)</em>, 2020.
-          <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          </div>
+          <div class="abstract" hidden>Spectral algorithms, such as principal component analysis and spectral clustering, typically require careful data transformations to be effective: upon observing a matrix $A$, one may look at the spectrum of $ψ(A)$ for a properly chosen $ψ$. The issue is that the spectrum of $A$ might be contaminated by non-informational top eigenvalues, e.g., due to scale` variations in the data, and the application of $ψ$ aims to remove these. Designing a good functional $ψ$ (and establishing what good means) is often challenging and model dependent. This paper proposes a simple and generic construction for sparse graphs, $$ψ(A) = \1((I+A)^r \ge1),$$ where $A$ denotes the adjacency matrix and $r$ is an integer (less than the graph diameter). This produces a graph connecting vertices from the original graph that are within distance $r$, and is referred to as graph powering. It is shown that graph powering regularizes the graph and decontaminates its spectrum in the following sense: (i) If the graph is drawn from the sparse Erdős-Rényi ensemble, which has no spectral gap, it is shown that graph powering produces a `maximal&#x27; spectral gap, with the latter justified by establishing an Alon-Boppana result for powered graphs; (ii) If the graph is drawn from the sparse SBM, graph powering is shown to achieve the fundamental limit for weak recovery (the KS threshold) similarly to \cite{massoulie-STOC}, settling an open problem therein. Further, graph powering is shown to be significantly more robust to tangles and cliques than previous spectral algorithms based on self-avoiding or nonbacktracking walk counts \cite{massoulie-STOC,Mossel_SBM2,bordenave,colin3}. This is illustrated on a geometric block model that is dense in cliques.</div>
         </li>
-      </ul>
-      <div class="year">2019</div>
-      <ul>
         <li data-tags="provable">
           <a href="http://papers.nips.cc/paper/9575-sample-efficient-active-learning-of-causal-trees"
             class="publications"> Sample-Efficient Active Learning of Causal Trees</a>
@@ -596,7 +740,11 @@
           <b>Enric Boix-Adsera</b>, Guy Bresler.
           <br>
           <em>Conference on Neural Information Processing Systems (NeurIPS)</em>, 2019.
-          <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="provable">Provable ML algorithms</button></div>
+          </div>
+          <div class="abstract" hidden>We consider the problem of experimental design for learning causal graphs that have a tree structure. We propose an adaptive framework that determines the next intervention based on a Bayesian prior updated with the outcomes of previous experiments, focusing on the setting where observational data is cheap (assumed infinite) and interventional data is expensive. While information greedy approaches are popular in active learning, we show that in this setting they can be exponentially suboptimal (in the number of interventions required), and instead propose an algorithm that exploits graph structure in the form of a centrality measure. If infinite interventional data is available, we show that the algorithm requires a number of interventions less than or equal to a factor of 2 times the minimum achievable number. We show that the algorithm and the associated theory can be adapted to the setting where each performed intervention yields finitely many samples. Several extensions are also presented, to the case where a specified set of nodes cannot be intervened on, to the case where K interventions are scheduled at once, and to the fully adaptive case where each experiment yields only one sample. In the case of finite interventional data, through simulated experiments we show that our algorithms outperform different adaptive baseline algorithms.</div>
         </li>
         <li data-tags="other">
           <a href="https://arxiv.org/abs/1903.08247" class="publications"> The Average-Case Complexity of Counting Cliques in Erdos-Renyi Hypergraphs</a>
@@ -606,7 +754,11 @@
           <em>Foundations of Computer Science (FOCS)</em>, 2019.
           <br>
           <b>Invited to the SIAM Journal on Computing Special Issue for FOCS 2019</b>
-          <div class="tags"><button type="button" class="tag" data-tag="other">Other</button></div>
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="other">Other</button></div>
+          </div>
+          <div class="abstract" hidden>We consider the problem of counting $k$-cliques in $s$-uniform Erdos-Renyi hypergraphs $G(n,c,s)$ with edge density $c$, and show that its fine-grained average-case complexity can be based on its worst-case complexity. We prove the following: 1. Dense Erdos-Renyi graphs and hypergraphs: Counting $k$-cliques on $G(n,c,s)$ with $k$ and $c$ constant matches its worst-case time complexity up to a $\mathrm{polylog}(n)$ factor. Assuming randomized ETH, it takes $n^{Ω(k)}$ time to count $k$-cliques in $G(n,c,s)$ if $k$ and $c$ are constant. 2. Sparse Erdos-Renyi graphs and hypergraphs: When $c = Θ(n^{-α})$, we give several algorithms exploiting the sparsity of $G(n, c, s)$ that are faster than the best known worst-case algorithms. Complementing this, based on a fine-grained worst-case assumption, our results imply a different average-case phase diagram for each fixed $α$ depicting a tradeoff between a runtime lower bound and $k$. Surprisingly, in the hypergraph case ($s \ge 3$), these lower bounds are tight against our algorithms exactly when $c$ is above the Erdős-Rényi $k$-clique percolation threshold. This is the first worst-case-to-average-case hardness reduction for a problem on Erdős-Rényi hypergraphs that we are aware of. We also give a variant of our result for computing the parity of the $k$-clique count that tolerates higher error probability.</div>
         </li>
         <li data-tags="other">
           <a href="https://dl.acm.org/doi/10.1145/3293611.3331593" class="publications"> Randomized Concurrent Set Union and Generalized Wake-Up</a>
@@ -614,7 +766,9 @@
           Siddhartha Jayanti*, Robert E. Tarjan*, <b>Enric Boix-Adsera</b>.
           <br>
           <em>Symposium on Principles of Distributed Computing (PODC),</em> 2019.
-          <div class="tags"><button type="button" class="tag" data-tag="other">Other</button></div>
+          <div class="entry-meta">
+            <div class="tags"><button type="button" class="tag" data-tag="other">Other</button></div>
+          </div>
         </li>
       </ul>
     </div>
@@ -630,22 +784,12 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const filterBar = document.getElementById('tag-filter');
-    const papers = Array.from(document.querySelectorAll('#papers-by-year li[data-tags]'));
-    const lists = Array.from(document.querySelectorAll('#papers-by-year ul'));
+    const papers = Array.from(document.querySelectorAll('#paper-list li[data-tags]'));
+
 
     function apply(filter) {
       papers.forEach(function (li) {
         li.hidden = !(filter === 'all' || li.dataset.tags.split(' ').indexOf(filter) !== -1);
-      });
-      // hide a year heading when nothing is left under it
-      lists.forEach(function (ul) {
-        const anyVisible = Array.from(ul.querySelectorAll('li[data-tags]')).some(function (li) {
-          return !li.hidden;
-        });
-        ul.hidden = !anyVisible;
-        let prev = ul.previousElementSibling;
-        while (prev && !prev.classList.contains('year')) prev = prev.previousElementSibling;
-        if (prev) prev.hidden = !anyVisible;
       });
       filterBar.querySelectorAll('.tag-btn').forEach(function (b) {
         b.classList.toggle('active', b.dataset.filter === filter);
@@ -657,11 +801,19 @@
       if (btn) apply(btn.dataset.filter);
     });
 
-    document.getElementById('papers-by-year').addEventListener('click', function (e) {
+    document.getElementById('paper-list').addEventListener('click', function (e) {
       const tag = e.target.closest('.tag');
       if (tag) {
         apply(tag.dataset.tag);
         document.getElementById('papers').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      const toggle = e.target.closest('.abs-toggle');
+      if (toggle) {
+        const abstract = toggle.closest('li').querySelector('.abstract');
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        abstract.hidden = open;
       }
     });
   });
