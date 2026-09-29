@@ -233,6 +233,14 @@
       transform: rotate(90deg);
     }
 
+    .abstract p {
+      margin: 0 0 0.6em 0;
+    }
+
+    .abstract p:last-child {
+      margin-bottom: 0;
+    }
+
     .abstract {
       margin-top: 0.5em;
       padding: 0.7em 0.9em;
@@ -767,8 +775,10 @@
           <br>
           <em>Symposium on Principles of Distributed Computing (PODC),</em> 2019.
           <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
             <div class="tags"><button type="button" class="tag" data-tag="other">Other</button></div>
           </div>
+          <div class="abstract" hidden><p>We consider the disjoint set union problem in the asynchronous shared memory multiprocessor computation model. We design a randomized algorithm that performs at most O(log n) work per operation (with high probability), and performs at most O(m • (α(n, m/(np)) + log(np/m + 1)) total work in expectation for a problem instance with m operations on n elements solved by p processes. Our algorithm is the first to have work bounds that grow sublinearly with p against an adversarial scheduler.</p><p>We use Jayanti&#x27;s Wake Up problem and our newly defined Generalized Wake Up problem to prove several lower bounds on concurrent set union. We show an Ω(log min {n,p}) expected work lower bound on the cost of any single operation on a set union algorithm. This shows that our single-operation upper bound is optimal across all algorithms when p = nΩ(1). Furthermore, we identify a class of “symmetric algorithms” that captures the complexities of all the known algorithms for the disjoint set union problem, and prove an Ω(m • (α(n, m(np)) + log(np/m + 1))) expected total work lower bound on algorithms of this class, thereby showing that our algorithm has optimal total work complexity for this class. Finally, we prove that any randomized algorithm, symmetric or not, cannot breach an Ω(m • (α(n, m/n) + log log(np/m + 1))) expected total work lower bound.</p></div>
         </li>
       </ul>
     </div>
