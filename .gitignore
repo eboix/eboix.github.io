@@ -1,3 +1,6 @@
 # Local-only source images and backups (not published to the site)
 WhatsApp Image*.jpeg
 *.bak
+
+# Full-resolution camera originals (web copies are committed instead)
+profile4.jpeg
