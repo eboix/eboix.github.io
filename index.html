@@ -352,8 +352,7 @@
     </div>
 
     <div id="paper-list">
-      <ul>
-        <li data-tags="safety">
+      <ul>        <li data-tags="safety">
           <a href="https://arxiv.org/abs/2609.32061" class="publications">Contract monitoring: governing AI via
             separation of powers</a>
           <br>
@@ -377,6 +376,32 @@
             <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button><button type="button" class="tag" data-tag="reasoning">AI reasoning</button></div>
           </div>
           <div class="abstract" hidden>Recent work has identified a human brain network specialized for abstract formal reasoning (Kean et al., 2025). Does the same hold true in language models? To answer this question, we introduce the minimal viable subspace (MVS) method, which searches for the lowest-rank activation subspace at a layer that preserves task performance when everything outside that subspace is ablated. Using MVS, we demonstrate low-rank subspaces supporting logical inference on Gemma and Qwen models. Furthermore, these subspaces exhibit a clear dissociation from model capacities on other tasks, such that retaining these late logic subspaces preserves inference while impairing factual knowledge, working memory, cognitive control, and arithmetic. Conversely, ablating them reduces logical inference accuracy to chance while largely sparing these other capacities. Our results suggest a functionally localizable core machinery for logic akin to that in the human brain.</div>
+        </li>
+        <li data-tags="safety">
+          <a href="https://arxiv.org/abs/2609.36049" class="publications">Improving scalable oversight with co-trained monitors</a>
+          <br>
+          Joseph H. Rudoler, Kevin Tan, Benedict Tessler, Timothy Kong, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Preprint</em>, 2026.
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="safety">AI safety &amp; interpretability</button></div>
+          </div>
+          <div class="abstract" hidden>Worker-monitor setups are a promising approach to AI oversight, but training workers against fixed monitors can incentivize monitor evasion. We study whether this failure mode can be avoided by co-training the monitor alongside the worker, and explore both supervised and self-supervised approaches. In the supervised setting, we prove a characterization: monitoring is possible with vanishing error and query rates exactly when the class of possible monitor functions has finite Littlestone dimension. This connects worker monitoring with an established literature on adversarial online learning. For self-supervision, we propose a co-training procedure based on test-time distillation: the monitor uses additional test-time compute to generate training labels, then trains its standard-compute policy on those labels. For majority-vote labels, we give a finite-sample sharpening guarantee under adaptive worker distributions with action coverage, that shows that the monitor&#x27;s verdicts converge to its initial modal verdicts. We stress-test the former in code-security settings where the worker is trained adversarially to fool the monitor. Our results suggest that adaptive monitors are better at keeping pace with evolving worker strategies, while fixed monitors are more vulnerable to evasion.</div>
+        </li>
+
+        <li data-tags="dlt">
+          <a href="https://arxiv.org/abs/2609.36301" class="publications">MoRE: Scaling mixture of experts with hardware-aware low-rank
+            routing</a>
+          <br>
+          Honam Wong, Surbhi Goel, <b>Enric Boix-Adsera</b>.
+          <br>
+          <em>Preprint</em>, 2026.
+          <div class="entry-meta">
+            <button type="button" class="abs-toggle" aria-expanded="false"><span class="caret">&#9658;</span> abstract</button>
+            <div class="tags"><button type="button" class="tag" data-tag="dlt">Deep learning theory</button></div>
+          </div>
+          <div class="abstract" hidden>Mixture-of-Experts (MoE) layers are central to frontier language models, and recent architectures push toward more and smaller experts. In this regime, the standard linear router becomes a bottleneck: with $M$ experts and hidden dimension $h$, its per-token cost $Θ(Mh)$ dominates the MoE layer once $M$ is large. We introduce MoRE (Mixture of Rank-reduced-routed Experts), which factorizes the router weight matrix at rank $r$ and reduces the routing cost to $O((h + M)r)$. We prove that rank logarithmic in $M$ suffices for routing expressivity when the number of active experts is fixed, and is necessary up to precision factors. We also prove that logarithmic rank preserves load balance in a Gaussian memorization model, and training on a synthetic phonebook task shows that low rank does not hurt memorization. At matched active FLOPs, the factorization allows a factor of $Θ(h/r)$ more experts. To realize this gain in wall-clock time, we design a fused Triton kernel at inference that avoids expensive memory operations on HBM. Empirically, MoRE improves memorization on the phonebook task and performance on knowledge-intensive Q\&amp;A benchmarks after pretraining, while matching reasoning ability. Code available at https://github.com/Matheart/MoRE_code.</div>
         </li>
         <li data-tags="dlt">
           <a href="https://arxiv.org/abs/2608.24007" class="publications">Revenge of Monosemanticity: Neuron
